@@ -25,3 +25,27 @@ body {
     text-wrap: balance;
   }
 }
+input{
+  color: #0a0a0a;
+}
+
+.gridContainer{
+  /* display:grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-rows: 2fr 1fr 2fr;
+  grid-gap: 1rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* .flow{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
+
