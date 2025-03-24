@@ -1,5 +1,6 @@
+import Inventory from "./inventory";
 
-const Player = ({ chara}) => {
+const Player = ({ chara,setChara}) => {
   let lvl = chara.lvl;
   let health = chara.stats[lvl].health;
   let hp = chara.stats[lvl].hp;
@@ -11,6 +12,7 @@ const Player = ({ chara}) => {
           <p>
           player health is- {health} out of {hp}
           </p>
+      <Inventory setChara={setChara} chara={chara}/>
        
     
     </div>

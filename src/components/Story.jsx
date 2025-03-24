@@ -28,7 +28,8 @@ const Story = ({chara,setChara}) => {
 )} 
             {chara.chapter === 3 && (
                  <div>
-                 <h1>Train</h1>
+                 <h1>Train to level up and make money</h1>
+                 <p>buy some potions for the next fight</p>
                  <button onClick={()=>{
                      setChara({...chara, currently:"fight"})
                     }}>Do some fighting training</button>

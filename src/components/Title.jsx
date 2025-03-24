@@ -5,7 +5,6 @@ import CreatePlayer from "./CreatePlayer";
 import Fight from "./fight/fight";
 import Story from "./Story";
 import Login from "./Login";
-import Inventory from "./inventory";
 import Store from "./Store";
 
 const Title = () => {
@@ -50,7 +49,6 @@ const Title = () => {
       <Login chara={chara} setChara={setChara} />
       <Story chara={chara} setChara={setChara} />
       <Fight chara={chara} setChara={setChara}/>
-      <Inventory setChara={setChara} chara={chara}/>
       <Store chara={chara} setChara={setChara}/>
     </div>
   );
