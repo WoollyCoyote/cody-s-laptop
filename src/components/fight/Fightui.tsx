@@ -2,7 +2,7 @@ import Player from "../Player";
 import Type from "./Typeui";
 
 interface Chara {
-  lvl: string;
+  wordLvl:number;
   chapter: number;
   currently: string;
   stats: {
@@ -30,8 +30,7 @@ interface EnemyList {
   }
 }
 
-interface fightUIProps {
-  level:number,
+interface fightuiProps {
   handleRun:()=>void,
   typeTOAttack:()=>void,
   wordList:WordList,
@@ -40,15 +39,15 @@ interface fightUIProps {
   enemyList:EnemyList,
 }
 
-const FightUI:React.FC<fightUIProps> = ({level, handleRun,typeTOAttack, wordList, chara, setChara, enemyList }) => {
+const Fightui:React.FC<fightuiProps> = ({ handleRun,typeTOAttack, wordList, chara, setChara, enemyList }) => {
   return (
     <div>
       {chara.currently === "fight" && (
         <div className="gridContainer">
-          <Player chara={chara} setChara={setChara} />
+          <Player chara={chara} />
 
           <div className="flow">
-            <Type wordList={wordList} typeTOAttack={typeTOAttack} level={level}/>
+            <Type wordList={wordList} typeTOAttack={typeTOAttack} wordLvl={chara.wordLvl} />
             <button
             className="flow"
               onClick={handleRun}
@@ -66,4 +65,4 @@ const FightUI:React.FC<fightUIProps> = ({level, handleRun,typeTOAttack, wordList
   );
 };
 
-export default FightUI;
+export default Fightui;

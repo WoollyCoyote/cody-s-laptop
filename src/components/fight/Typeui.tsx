@@ -7,11 +7,12 @@ interface WordList {
 }
 interface TypeProps {
   wordList: WordList,
+  wordLvl:number,
   typeTOAttack: () => void,
   level: number
 }
 
-const Type:React.FC<TypeProps> = ({wordList,typeTOAttack, level}) => {
+const Type:React.FC<TypeProps> = ({wordList,typeTOAttack, wordLvl}) => {
     const [show, setShow] = useState<boolean>(false)
     const [input, setInput] = useState<string>("")
     const [wordNumber, setWordNumber] = useState<number>(0)
@@ -46,15 +47,15 @@ const toggleTimer = () => {
   
   
 function handleAttack(){
-  if(input === wordList[level][wordNumber]){
-    console.log('correct',input)
-    if(wordNumber < wordList[level].length-1)setWordNumber(wordNumber+1)
+  if(input == wordList[wordLvl][wordNumber]){
+    console.log('correct',input,wordLvl)
+    if(wordNumber < wordList[wordLvl].length-1)setWordNumber(wordNumber+1)
   typeTOAttack()
-  console.log('wordNumber',wordNumber)
+  console.log('wordNumber',wordNumber,wordLvl)
   resetTimer()
   return handleClose()
   }else{
-    console.log('incorrect',input)
+    console.log('incorrect',input,wordLvl)
     resetTimer()
   return handleClose()
   }
@@ -87,7 +88,7 @@ function handleKeyPress(e:React.KeyboardEvent){
         <Modal.Body>
          type this
          <h1>
-           {wordList[level][wordNumber]} 
+           {wordList[wordLvl][wordNumber]} 
           </h1>
            to attack in...
         </Modal.Body>

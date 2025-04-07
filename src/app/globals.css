@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -18,6 +18,20 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+}
+[data-theme="dark"] {
+  --bg-color: #000;
+  --text-color: #fff;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 @layer utilities {
@@ -25,10 +39,15 @@ body {
     text-wrap: balance;
   }
 }
-input{
+
+.dark{
+  background-color: #0a0a0a;
+  color: #ededed;
+}
+.light{
+  background-color: #ededed;
   color: #0a0a0a;
 }
-
 .gridContainer{
   /* display:grid;
   grid-template-columns: 2fr 1fr 2fr;
@@ -49,23 +68,62 @@ input{
 }
 
 
-.modal {
+/* .modal {
   position: fixed;
   top: 10%;
-  left: 20%;
+  left: 35%;
   width: 5fr;
   height: fit-content;
   padding: 2%;
-  margin-bottom: 10%;
   border-radius: 3%;
   z-index: 1; 
   color: #0a0a0a;
   background-color: #ededed;
+} */
+
+/* .modal {
+  position: fixed;
+  top: 25%;
+  left: 35%;
+  bottom: 25%;
+  padding: 2%;
+  border-radius: 3%;
+  z-index: 1;
+  color: #0a0a0a;
+  background-color: #ededed;
+} */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the modal */
+  width: fit-content; /* Adjusts width to content */
+  height: fit-content;
+  padding: 2%;
+  border-radius: 3%;
+  z-index: 1;
+  /* color: #0a0a0a;
+  background-color: #ededed; */
+  text-align: center;
 }
 
 .modal-dialog {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* Center vertically */
+}
+
+.select{
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #0a0a0a;
+  /* background-color: #ededed;
+  color:#0a0a0a; */
+}
+
+.optionsBtn{
+  position: absolute;
+  left:1%;
+  top:1%;
 }

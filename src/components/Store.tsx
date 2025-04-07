@@ -1,6 +1,13 @@
-
-const Store = ({chara, setChara}) => {
-    function buy (item){
+'use client';
+import React, { useContext } from 'react';
+import { PlayerContext, PlayerContextProps } from "./playerContext";
+const Store = () => {
+      const context = useContext<PlayerContextProps | undefined>(PlayerContext)  
+      if (!context) {
+        return <div>Context not available.</div>;
+      }
+    const {chara,setChara} = context
+    function buy (item:string) {
         if(chara.gold < 1){
             alert("not enough gold")
             return

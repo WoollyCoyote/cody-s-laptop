@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import checkIfDead from "../checkIfDead";
 import Fightui from "./Fightui";
+import { PlayerContext } from "../playerContext";
 
 interface Chara {
-  lvl: string;
+  lvl:number;
+  wordLvl:number;
   chapter: number;
   currently: string;
   stats: {
@@ -22,10 +24,14 @@ interface FightProps {
   setChara: (chara: Chara) => void;
 }
 
-export default function Fight({ chara, setChara }:React.FC<FightProps>) {
+export default function Fight() {
+
+  const context = useContext(PlayerContext);
+  const { chara, setChara } = context;
+
   const wordList ={
-    1: ["hello", "world", "goodbye", "cruel", "world"],
-    2: ["hello", "world", "goodbye", "cruel", "world"],
+    1:["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
+    2: ["aaa", "aab", "aac", "bbc", "bbd","bbf","bbg","bbh","bbi","bbj","bbk","bbl","bbm","bbn","bbo","bbp","bbq","bbr","bbs","bbt","bbu","bbv","bbw","bbx","bby","bbz","ccd","cce","ccf","ccg","cch","cci","ccj","cck","ccl","ccm","ccn","cco","ccp","ccq","ccr","ccs","cct","ccu","ccv","ccw","ccx","ccy","ccz","ddd","dde","ddf","ddg","ddh","ddi","ddj","ddk","ddl","ddm","ddn","ddo","ddp","ddq","ddr","dds","ddt","ddu","ddv","ddw","ddx","ddy","ddz","eee","eef","eeg","eeh","eei","eej","eek","eel","eem","een","eeo","eep","eeq","eer","ees","eet","eeu","eev","eew","eex","eey","eez","fff","ffg","ffh","ffi","ffj","ffk","ffl","ffm","ffn","ffo","ffp","ffq","ffr","ffs","fft","ffu","ffv","ffw","ffx","ffy","ffz","ggg","ggh","ggi","ggj","ggk","ggl","ggm","ggn","ggo","ggp","ggq","ggr","ggs","ggt","ggu","ggv","ggw","ggx","ggy","ggz","hhh","hhi","hhj","hhk","hhl","hhm","hhn","hho","hhp","hhq","hhr","hhs","hht","hhu","hhv","hhw","hhx","hhy","hhz","iii","iij","iik","iil","iim","iin","iio","iip","iiq","iir","iis","iit","iiu","iiv","iiw","iix","iiy","iiz","jjj","jjk","jjl","jjm","jjn","jjo","jjp","jjq","jjr","jjs","jjt","jju","jjv","jjw","jjx","jjy","jjz","kk"],
     3: ["hello", "world", "goodbye", "cruel", "world"],
     4: ["hello", "world", "goodbye", "cruel", "world"],
   }
@@ -131,5 +137,5 @@ export default function Fight({ chara, setChara }:React.FC<FightProps>) {
     checkIfDead({ chara, setChara, enemyList, setEnemyList });
   }, 1000);
   }
-  return Fightui({handleRun, typeTOAttack, chara, setChara, level, enemyList, setEnemyList, wordList });
+  return Fightui({handleRun, typeTOAttack, chara, setChara,  enemyList, setEnemyList, wordList });
 }
